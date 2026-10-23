@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="theme-color" content="#101222" />
+    <meta
+      name="description"
+      content="Open Sky: an accessible bright-star catalog explorer with a text-first view, constellation descriptions and keyboard controls."
+    />
+    <title>Open Sky / Accessible Star Map</title>
+    <link rel="stylesheet" href="style.css" />
+    <script type="module" src="app.js"></script>
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to star explorer</a>
+    <header>
+      <a href="https://hrushikbarani-hub.github.io/">HIRSU / OPEN SKY ↗</a
+      ><span>BRIGHT STARS / AN ACCESSIBLE FIELD GUIDE</span
+      ><a href="https://github.com/hrushikbarani-hub/accessible-star-map"
+        >SOURCE ↗</a
+      >
+    </header>
+    <main id="main">
+      <section class="intro">
+        <p>ASTRONOMY, WITH MORE WAYS IN.</p>
+        <h1>The sky belongs<br />to <em>everyone.</em></h1>
+        <p>
+          Explore 144 bright named stars through a map, a list, or both. Read
+          the coordinates. Follow a constellation. Keep a few favorites.
+        </p>
+      </section>
+      <form id="filters" role="search" aria-label="Filter star catalog">
+        <label
+          >Search stars or constellations<input
+            id="query"
+            type="search"
+            maxlength="100"
+            placeholder="Sirius, Orion, HIP 32349…" /></label
+        ><label
+          >Constellation<select id="constellation">
+            <option value="all">All constellations</option>
+          </select></label
+        ><label
+          >Faintest magnitude <output id="mag-label">3</output
+          ><input
+            id="magnitude"
+            type="range"
+            min="0.5"
+            max="3"
+            step="0.5"
+            value="3" /></label
+        ><label
+          >Sort<select id="sort">
+            <option value="brightness">Brightest first</option>
+            <option value="name">Name A–Z</option>
+          </select></label
+        ><button type="reset">Reset filters</button>
+      </form>
+      <div class="options">
+        <label><input type="checkbox" id="text-only" />Text-only view</label
+        ><label><input type="checkbox" id="contrast" />Higher contrast</label
+        ><label><input type="checkbox" id="saved-only" />Saved stars only</label
+        ><button id="export">Export this selection as CSV ↓</button>
+      </div>
+      <p class="help">
+        Lower magnitude means brighter. Coordinates use the catalog's J2000
+        epoch/equinox. This is an all-sky catalog chart; it does not calculate
+        your current horizon, weather or daylight.
+      </p>
+      <p id="message" role="status"></p>
+      <section id="visual" class="panel">
+        <div class="map-heading">
+          <h2>The whole celestial sphere</h2>
+          <label
+            >Rotate RA origin (hours)<input
+              id="rotation"
+              type="range"
+              min="0"
+              max="23"
+              step="1"
+              value="0"
+          /></label>
+        </div>
+        <div
+          id="map"
+          tabindex="0"
+          role="group"
+          aria-label="Interactive catalog map. Left and right arrow keys rotate the right ascension origin. Choose stars from the list for complete descriptions."
+        ></div>
+        <p class="help">
+          RA increases toward the left. Declination increases upward. Horizontal
+          grid spacing is 6 hours; vertical spacing is 30 degrees. Map positions
+          are schematic, not a view through a telescope. The list below provides
+          the same catalog data.
+        </p>
+      </section>
+      <div class="layout">
+        <section class="panel list-panel">
+          <div class="list-heading">
+            <h2>Star index</h2>
+            <p id="count" role="status"></p>
+          </div>
+          <div id="star-list"></div>
+          <div class="paging">
+            <button id="previous">← Previous</button><span id="page"></span
+            ><button id="next">Next →</button>
+          </div>
+        </section>
+        <section
+          id="inspector"
+          class="panel inspector"
+          aria-live="polite"
+          aria-label="Selected star details"
+        ></section>
+      </div>
+      <section class="panel about">
+        <h2>Read the map in your own way.</h2>
+        <p>
+          Every plotted star has a matching list entry with its name,
+          constellation, RA, declination and magnitude. You can explore entirely
+          with keyboard or text. The map has no automatic animation, flashing or
+          sound. Larger browser text and zoom remain supported.
+        </p>
+        <p>
+          This is a small bright-star selection, not a complete star atlas. Star
+          names and positions come from the HYG catalog. Constellation
+          descriptions are original summaries of the subset, and no official
+          constellation boundaries are drawn.
+        </p>
+      </section>
+    </main>
+    <footer>
+      <p>
+        Data: HYG 4.1 / Astronexus and catalog contributors. Named stars with
+        HIP IDs and visual magnitude ≤3; selected, rounded and reformatted.
+        <a
+          href="https://github.com/astronexus/HYG-Database/tree/c7f7f883fe678cc7680169a50ccd7dcc49b060ce/hyg/CURRENT"
+          >Pinned source</a
+        >
+        ·
+        <a href="https://creativecommons.org/licenses/by-sa/4.0/"
+          >CC BY-SA 4.0</a
+        >. The data subset retains that license; application code is MIT.
+      </p>
+    </footer>
+  </body>
+</html>
