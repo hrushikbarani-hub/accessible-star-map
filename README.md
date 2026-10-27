@@ -25,7 +25,7 @@ python -m http.server 8146 --bind 127.0.0.1 --directory web
 
 Open `http://127.0.0.1:8146`. Node.js 22+ is needed only for checks; the static app has no runtime dependency or external data request. GitHub Actions checks the source and publishes `web` to free GitHub Pages.
 
-Checks cover catalog integrity, search/filter composition, coordinate bounds, saved IDs, text-only controls, selection focus and the real DOM workflow. Visual browser and screen-reader QA were unavailable during this release; the accessibility features need feedback from real users and do not imply certification.
+Checks cover catalog integrity, search/filter composition, coordinate bounds, saved IDs, text-only controls, selection focus and the real DOM workflow. Visual browser and screen-reader testing remain outstanding. The accessibility features need feedback from real users and do not imply certification.
 
 ## Data and code licenses
 
