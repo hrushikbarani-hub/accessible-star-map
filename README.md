@@ -1,6 +1,6 @@
 # Open Sky: Accessible Star Map
 
-A bright-star catalog explorer with a map and an equivalent text workflow. [Open the app](https://hrushikbarani-hub.github.io/accessible-star-map/).
+A bright-star catalog explorer with a map and an equivalent text workflow. [Open the app](https://hirsu-dev.github.io/accessible-star-map/).
 
 Search 144 named stars, filter 47 constellations and adjust the magnitude limit. Select a star to read its J2000 RA/declination, visual magnitude and an original description of the selected constellation's catalog subset. Save favorite star IDs locally or export the filtered data as an attributed CSV.
 
@@ -33,4 +33,4 @@ The HYG 4.1 named-star subset is CC BY-SA 4.0, attributed to Astronexus and cata
 
 `scripts/derive_catalog.py` reproduces the selected JSON from the pinned upstream CSV without writing a file. `web/model.js` handles search, catalog projection and descriptions; `web/app.js` handles the interface. Only saved star IDs are stored in the browser. Clear site data to remove them.
 
-Built by [hirsu](https://hrushikbarani-hub.github.io/), connected to the Robo Telescope and astronomy projects. Next useful work: user-led screen-reader review, a real horizon view through a validated astronomy library, and a wider catalog with an equally usable text interface.
+Built by [hirsu](https://hirsu-dev.github.io/), connected to the Robo Telescope and astronomy projects. Next useful work: user-led screen-reader review, a real horizon view through a validated astronomy library, and a wider catalog with an equally usable text interface.
